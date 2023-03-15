@@ -1,22 +1,29 @@
 ﻿using System.Text.RegularExpressions;
 
-string s = "Пхвердов";
-
-//Regex regex = new Regex(@"^А-Г, П");
-Regex regex = new Regex(@"^[А-Г, П]\w*");
-
-//string s = "Бык тупогуб, тупогубенький бычок, у быка губа бела была ступа";
-//Regex regex = new Regex(@"туп(\w*)");
-
-
-MatchCollection matches = regex.Matches(s);
-if (matches.Count > 0)
+namespace MyToDouble
 {
-    foreach (Match match in matches)
-        Console.WriteLine(match.Value);
+    public class Program
+    {
+        private static void Main(string[] args)
+        {
+            Console.Write("Введите число: ");
+            string s = Console.ReadLine();
+
+            double d = s.MyToDouble();
+
+            Console.WriteLine("\nИсходная строка.");
+            Console.WriteLine(s);
+
+            Console.WriteLine("\nПреобразованная строка.");
+            Console.WriteLine(d);
+
+            Console.WriteLine("\nКонкотенация строк.");
+            Console.WriteLine(s + s);
+
+            Console.WriteLine("\nСложение чисел.");
+            Console.WriteLine(d + d);            
+
+            Console.ReadKey();
+        }
+    }
 }
-else
-{
-    Console.WriteLine("Совпадений не найдено");
-}
-Console.ReadKey();
